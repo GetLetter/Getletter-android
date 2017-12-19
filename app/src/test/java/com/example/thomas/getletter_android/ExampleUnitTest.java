@@ -1,4 +1,4 @@
-package com.example.thomas.getletter_android;
+package com.android.getletter.getletter;
 
 import org.junit.Test;
 
