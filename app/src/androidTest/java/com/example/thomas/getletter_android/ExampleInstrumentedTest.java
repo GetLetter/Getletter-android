@@ -1,4 +1,4 @@
-package com.example.thomas.getletter_android;
+package com.android.getletter.getletter;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.thomas.getletter_android", appContext.getPackageName());
+        assertEquals("com.android.getletter.getletter", appContext.getPackageName());
     }
 }
