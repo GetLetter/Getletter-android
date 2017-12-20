@@ -30,12 +30,12 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="GETLETTER"
+        android:textColor="@android:color/white"
         android:textSize="25dp"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="100dp" />
+        tools:layout_editor_absoluteY="130dp" />
 
     <TextView
         android:id="@+id/punchline"
@@ -44,8 +44,9 @@
         android:layout_marginTop="25dp"
         android:fontFamily="@font/Avenir-Light-07"
         android:gravity="center"
-        android:text="Vos voeux professionnels maintenant sublimés"
-        android:textSize="20dp"
+        android:text="Vos voeux professionnels, \n maintenant sublimés !"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -59,6 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
+        android:layout_marginBottom="15dp"
         android:background="@android:color/white"
         android:elevation="10dp"
         android:shadowRadius="10dp"
@@ -74,15 +76,18 @@
         android:id="@+id/conditions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_marginBottom="35dp"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
-        android:layout_marginBottom="25dp"
+        android:fontFamily="@font/Avenir-Roman-12"
+        android:gravity="center"
         android:text="En vous connectant, vous acceptez nos conditions générales d’utilisation."
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.501" />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
