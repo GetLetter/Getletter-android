@@ -19,6 +19,13 @@
 
     <string name="overview_header">Visualisez une dernières fois votre carte de voeux !</string>
 
+    <string name="recipient_header">Dites-nous en plus sur le destinataire !</string>
+    <string name="recipient_firstname">Prénom</string>
+    <string name="recipient_lastname">Nom</string>
+    <string name="recipient_adresse">Adresse</string>
+    <string name="recipient_postcode">Code postal</string>
+    <string name="recipient_town">Ville</string>
+
     <string-array name="send_modes">
         <item>Mode d'envoi</item>
         <item>Mode d'envoi normal</item>
