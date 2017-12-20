@@ -52,4 +52,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text1" />
 
+    <Button
+        android:id="@+id/btn_send"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
+        android:elevation="10dp"
+        android:fontFamily="@font/avenir_black"
+        android:text="Envoyer une carte de voeux"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="15dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text2" />
+
 </android.support.constraint.ConstraintLayout>
