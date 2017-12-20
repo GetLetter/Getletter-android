@@ -12,7 +12,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="false"
-        android:contentDescription="background"
         android:cropToPadding="false"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +35,7 @@
         android:textColor="@color/colorPrimary"
         android:background="@color/colorAccent"
         android:fontFamily="@font/avenir_black"
-        android:text=" ENVOYEZ UNE CARTE DE VOEUX "
+        android:text="@string/homepage_text1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
@@ -46,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/avenir_black"
-        android:text="Souhaitez une \nbonne année à vos \ncontacts pro !"
+        android:text="@string/homepage_text2"
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         android:lineSpacingMultiplier="0.8"
@@ -62,9 +61,8 @@
         android:layout_marginRight="25dp"
         android:layout_marginTop="10dp"
         android:background="@color/colorPrimary"
-        android:elevation="10dp"
         android:fontFamily="@font/avenir_black"
-        android:text="Envoyer une carte de voeux"
+        android:text="@string/homepage_btn"
         android:textAllCaps="false"
         android:textColor="#fff"
         android:textSize="15dp"
@@ -95,7 +93,7 @@
         android:textColor="@color/colorPrimary"
         android:background="@color/colorAccent"
         android:fontFamily="@font/avenir_black"
-        android:text=" VOS DERNIÈRES CARTES ENVOYÉES "
+        android:text="@string/homepage_text3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/line" />
 
