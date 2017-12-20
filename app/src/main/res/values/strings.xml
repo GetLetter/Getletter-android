@@ -12,6 +12,11 @@
     <string name="login_btn">Connexion avec LinkedIn</string>
     <string name="login_conditions">En vous connectant, vous acceptez nos conditions générales d’utilisation.</string>
 
+    <string name="msg_header">Écrivez votre message dès à présent !</string>
+
+    <string name="timeline_back">Retour</string>
+    <string name="timeline_go">Continuer</string>
+
     <string-array name="send_modes">
         <item>Mode d'envoi</item>
         <item>Mode d'envoi normal</item>
