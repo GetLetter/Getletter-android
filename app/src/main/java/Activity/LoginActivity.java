@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity{
         // set the view
         setContentView(R.layout.activity_login);
 
-        Typeface avenirLight = getResources().getFont(R.font.Avenir_Light_07);
+        Typeface avenirLight = getResources().getFont(R.font.avenir_light);
 
         logo = (TextView) findViewById(R.id.logo);
         punchline = (TextView) findViewById(R.id.punchline);
