@@ -1,6 +1,5 @@
-package Activity;
+package activity;
 
-import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -26,15 +25,10 @@ public class LoginActivity extends AppCompatActivity{
         // set the view
         setContentView(R.layout.activity_login);
 
-        Typeface avenirLight = getResources().getFont(R.font.avenir_light);
-
         logo = (TextView) findViewById(R.id.logo);
         punchline = (TextView) findViewById(R.id.punchline);
         conditions = (TextView) findViewById(R.id.conditions);
         btnLogin = (Button) findViewById(R.id.btn_login);
-
-        punchline.setTypeface(avenirLight);
-
     }
 
 }
