@@ -2,10 +2,16 @@
     <string name="app_name">Getletter-android</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_text">TextActivity</string>
+
     <string name="homepage_text1"> ENVOYEZ UNE CARTE DE VOEUX </string>
     <string name="homepage_text2">Souhaitez une \nbonne année à vos \ncontacts pro !</string>
     <string name="homepage_text3">VOS DERNIÈRES CARTES ENVOYÉES</string>
     <string name="homepage_btn">Envoyer une carte de voeux</string>
+
+    <string name="login_punchline">Vos voeux professionnels, \n maintenant sublimés !</string>
+    <string name="login_btn">Connexion avec LinkedIn</string>
+    <string name="login_conditions">En vous connectant, vous acceptez nos conditions générales d’utilisation.</string>
+
     <string-array name="send_modes">
         <item>Mode d'envoi</item>
         <item>Mode d'envoi normal</item>
@@ -17,4 +23,5 @@
         <item>Papier à lettres</item>
         <item>Papier bristol</item>
     </string-array>
+
 </resources>
