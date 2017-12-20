@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     android:elevation="1dp"
     android:id="@+id/loginView"
-    tools:context="activity.LoginActivity"
+    tools:context=".LoginActivity"
     android:background="@color/colorPrimary">
 
     <ProgressBar
