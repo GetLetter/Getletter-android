@@ -1,6 +1,6 @@
 package com.android.getletter.getletter;
 
-import android.app.Application;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -16,8 +16,12 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.jrejaud.onboarder.OnboardingPage;
 import com.neopixl.spitfire.listener.RequestListener;
 import com.neopixl.spitfire.request.BaseRequest;
+
+import java.util.LinkedList;
+import java.util.List;
 
 import butterknife.ButterKnife;
 
@@ -54,8 +58,9 @@ public class LoginActivity extends AppCompatActivity{
                 BaseRequest<LoginResponse> request = new BaseRequest.Builder<>(Request.Method.GET, "https://randomuser.me/api?limit=1", LoginResponse.class)
                         .listener(new RequestListener<LoginResponse>() {
                             @Override
-                            public void onSuccess(Request request, NetworkResponse response, LoginResponse dummyResponse) {
-                                Log.d("YOURAPP", "" + dummyResponse.getResults());
+                            public void onSuccess(Request request, NetworkResponse response, LoginResponse loginResponse) {
+                                Log.d("YOURAPP", "" + loginResponse.getResults());
+                                doOnboarding();
                             }
 
                             @Override
@@ -68,6 +73,38 @@ public class LoginActivity extends AppCompatActivity{
 
             }
         });
+    }
+
+    public void doOnboarding() {
+        //Building Onboarding Pages
+        OnboardingPage page1 = new OnboardingPage("Renseignez les informations sur votre destinataire.",null , null);
+        OnboardingPage page2 = new OnboardingPage("Personalisez votre carte et son message.",null , null);
+        OnboardingPage page3 = new OnboardingPage("Le destinataire  reçoit vos voeux, d'une très belle manière.",null , "Envoyer ma première carte");
+
+        //Finally, add all the Onboarding Pages to a list
+        List<OnboardingPage> onboardingPages = new LinkedList<>();
+        onboardingPages.add(page1);
+        onboardingPages.add(page2);
+        onboardingPages.add(page3);
+
+        //Optionally set the title and body text colors for a specific page.
+        page1.setTitleTextColor(R.color.white);
+        page2.setTitleTextColor(R.color.white);
+        page3.setTitleTextColor(R.color.white);
+
+
+        //Create a bundle for the Onboarding Activity
+        Bundle onboardingActivityBundle = MyOnboardingActivity.newBundleColorBackground(R.color.colorPrimary, onboardingPages);
+
+        //Optionally set if the user can swipe between fragments. True by default.
+        onboardingActivityBundle.putBoolean(MyOnboardingActivity.SWIPING_ENABLED, true);
+
+        //Optionally set if the activity has dot pagination at the bottom of the screen (only available when swiping is enabled). True by default.
+        onboardingActivityBundle.putBoolean(MyOnboardingActivity.HIDE_DOT_PAGINATION, false);
+
+        Intent OnboardingIntent = new Intent(getBaseContext(), MyOnboardingActivity.class);
+        OnboardingIntent.putExtras(onboardingActivityBundle);
+        startActivity(OnboardingIntent);
     }
 
 }
