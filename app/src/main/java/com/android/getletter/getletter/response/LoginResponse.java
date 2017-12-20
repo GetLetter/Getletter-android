@@ -1,6 +1,6 @@
 package com.android.getletter.getletter.response;
 
-import java.lang.reflect.Array;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -9,13 +9,17 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LoginResponse {
-    public Array results;
+    public List results;
 
-    public Array getResults() {
+    public List getResults() {
         return results;
     }
 
-    public void setResults(Array results) {
+    public void setResults(List results) {
         this.results = results;
+    }
+
+    LoginResponse() {
+
     }
 }
