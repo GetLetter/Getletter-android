@@ -28,7 +28,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/avenir_black"
         android:lineSpacingMultiplier="0.8"
-        android:text="Finalisez l'envoi de votre carte !"
+        android:text="@string/send_header"
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,6 @@
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:l
         android:entries="@array/send_modes"
         app:layout_constraintTop_toBottomOf="@+id/text1"
         app:layout_constraintRight_toRightOf="@+id/activity"
@@ -63,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Masquer le label GetLetter de la lettre."
+        android:text="@string/send_checkbox"
         app:layout_constraintTop_toBottomOf="@+id/select2"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -77,7 +76,7 @@
         android:textColor="@color/colorPrimary"
         android:background="@color/colorAccent"
         android:fontFamily="@font/avenir_black"
-        android:text=" SUPPLÉMENT DE 2€ "
+        android:text="@string/send_text1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
@@ -108,7 +107,7 @@
         android:fontFamily="@font/avenir_black"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:text="Retour"
+        android:text="@string/timeline_back"
         android:textAllCaps="false"
         android:textColor="@color/colorPrimary"
         android:textSize="15dp"
@@ -128,7 +127,7 @@
         android:fontFamily="@font/avenir_black"
         android:paddingLeft="70dp"
         android:paddingRight="70dp"
-        android:text="Continuer"
+        android:text="@string/timeline_go"
         android:textAllCaps="false"
         android:textColor="#fff"
         android:textSize="15dp"

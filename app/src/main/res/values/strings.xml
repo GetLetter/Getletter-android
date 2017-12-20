@@ -26,6 +26,10 @@
     <string name="recipient_postcode">Code postal</string>
     <string name="recipient_town">Ville</string>
 
+    <string name="send_header">Finalisez l\'envoi de votre carte !</string>
+    <string name="send_checkbox">Masquer le label GetLetter de la lettre.</string>
+    <string name="send_text1">SUPPLÉMENT DE 2€</string>
+
     <string-array name="send_modes">
         <item>Mode d'envoi</item>
         <item>Mode d'envoi normal</item>
