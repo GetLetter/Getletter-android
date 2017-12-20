@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="Activity.LoginActivity"
-    android:background="@android:color/white">
+    android:elevation="1dp"
+    android:id="@+id/loginView"
+    tools:context="activity.LoginActivity"
+    android:background="@color/colorPrimary">
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -26,57 +28,79 @@
         android:id="@+id/logo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
         android:gravity="center"
         android:text="GETLETTER"
+        android:textColor="@android:color/white"
         android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_login"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="100dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/punchline"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="20dp"
         android:layout_marginTop="25dp"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        android:text="Vos voeux professionnels maintenant sublimés"
+        android:fontFamily="@font/avenir_light"
+        android:gravity="center"
+        android:text="Vos voeux professionnels, \n maintenant sublimés !"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
 
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:text="CONNEXION AVEC LINKEDIN"
+        android:background="@android:color/white"
+        android:elevation="10dp"
+        android:fontFamily="@font/avenir_black"
+        android:text="Connexion avec LinkedIn"
+        android:textAllCaps="false"
         android:textSize="15dp"
         app:layout_constraintBottom_toTopOf="@+id/conditions"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="201dp" />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
         android:id="@+id/conditions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_marginBottom="35dp"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
-        android:layout_marginBottom="25dp"
+        android:fontFamily="@font/avenir_roman"
+        android:gravity="center"
         android:text="En vous connectant, vous acceptez nos conditions générales d’utilisation."
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.501" />
+        app:layout_constraintRight_toRightOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/pattern_plane" />
 
 
 </android.support.constraint.ConstraintLayout>
