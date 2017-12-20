@@ -2,4 +2,15 @@
     <string name="app_name">Getletter-android</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_text">TextActivity</string>
+    <string-array name="send_modes">
+        <item>Mode d'envoi</item>
+        <item>Mode d'envoi normal</item>
+        <item>Mode d'envoi express</item>
+    </string-array>
+    <string-array name="send_paper">
+        <item>Papier</item>
+        <item>Papier normal</item>
+        <item>Papier à lettres</item>
+        <item>Papier bristol</item>
+    </string-array>
 </resources>
