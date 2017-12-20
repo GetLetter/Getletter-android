@@ -19,7 +19,5 @@ public class LoginResponse {
         this.results = results;
     }
 
-    LoginResponse() {
-
-    }
+    LoginResponse() {}
 }
