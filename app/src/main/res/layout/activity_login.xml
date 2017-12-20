@@ -5,16 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:elevation="1dp"
     android:id="@+id/loginView"
     tools:context="Activity.LoginActivity"
     android:background="@color/Background">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/pattern_plane"
-        android:scaleType = "centerCrop" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -60,21 +54,21 @@
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_height="wrap_content"
+        style="@android:style/Widget.Material.Light.Button.Small"
         android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:text="Connexion avec LinkedIn"
-        android:textSize="15dp"
-        android:textAllCaps="false"
-        android:backgroundTint="@android:color/white"
+        android:background="@android:color/white"
+        android:elevation="10dp"
         android:shadowRadius="10dp"
-        style="?android:attr/borderlessButtonStyle"
+        android:text="Connexion avec LinkedIn"
+        android:textAllCaps="false"
+        android:textSize="15dp"
         app:layout_constraintBottom_toTopOf="@+id/conditions"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="201dp" />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
         android:id="@+id/conditions"
@@ -89,6 +83,16 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.501" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/pattern_plane" />
 
 
 </android.support.constraint.ConstraintLayout>
