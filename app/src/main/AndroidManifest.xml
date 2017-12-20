@@ -45,6 +45,10 @@
             android:name=".HomepageActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".RecipientActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
     </application>
 
