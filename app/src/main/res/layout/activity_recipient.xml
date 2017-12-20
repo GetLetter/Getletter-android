@@ -18,4 +18,89 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/pattern_plane" />
 
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/avenir_black"
+        android:lineSpacingMultiplier="0.8"
+        android:text="Dites-nous en plus sur le destinataire !"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/input1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:inputType="textPersonName"
+        android:hint="Prénom"
+        android:textColor="#E5E6E6"
+        android:backgroundTint="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@+id/text2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/input2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:inputType="textPersonName"
+        android:hint="Nom"
+        android:textColor="#E5E6E6"
+        android:backgroundTint="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@+id/input1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/input3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:layout_marginStart="16dp"
+        android:inputType="textPersonName"
+        android:layout_marginTop="10dp"
+        android:hint="Adresse"
+        android:textColor="#E5E6E6"
+        android:backgroundTint="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@+id/input2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/input4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="5"
+        android:layout_marginStart="16dp"
+        android:inputType="textPersonName"
+        android:layout_marginTop="10dp"
+        android:hint="Code Postal"
+        android:textColor="#E5E6E6"
+        android:backgroundTint="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@+id/input3"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/input5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="5"
+        android:layout_marginStart="150dp"
+        android:inputType="textPersonName"
+        android:hint="Ville"
+        android:textColor="#E5E6E6"
+        android:backgroundTint="@color/colorAccent"
+        app:layout_constraintBaseline_toBaselineOf="@id/input4"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
