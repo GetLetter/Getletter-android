@@ -58,7 +58,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:srcCompat="@drawable/timeline" />
+        app:srcCompat="@drawable/timeline2" />
 
     <Button
         android:id="@+id/btn_back"
