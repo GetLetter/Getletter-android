@@ -140,6 +140,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/guideline"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5"/>
+        app:layout_constraintGuide_percent="0.6"/>
 
 </android.support.constraint.ConstraintLayout>
