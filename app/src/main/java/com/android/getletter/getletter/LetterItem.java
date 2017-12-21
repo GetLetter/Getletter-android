@@ -32,9 +32,9 @@ public class LetterItem extends AbstractItem<LetterItem, LetterViewHolder> {
     }
 
     @Override
-    public void bindView(LetterViewHolder holder, List<Object> payloads) {
+    public void bindView(LetterViewHolder holder, List payloads) {
         super.bindView(holder, payloads);
 
-        holder.fill(letter);
+        // holder.fill(letter);
     }
 }

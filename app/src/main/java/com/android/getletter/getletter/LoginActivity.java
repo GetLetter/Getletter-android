@@ -16,6 +16,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.jrejaud.onboarder.OnboardingPage;
 import com.neopixl.spitfire.listener.RequestListener;
 import com.neopixl.spitfire.request.BaseRequest;
@@ -33,14 +34,17 @@ public class LoginActivity extends AppCompatActivity{
     private TextView logo, punchline, conditions;
     private Button btnLogin;
     private RequestQueue requestQueue;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // set the view
         setContentView(R.layout.activity_login);
+
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         logo = (TextView) findViewById(R.id.logo);
         punchline = (TextView) findViewById(R.id.punchline);
@@ -65,6 +69,9 @@ public class LoginActivity extends AppCompatActivity{
                             @Override
                             public void onSuccess(Request request, NetworkResponse response, LoginResponse loginResponse) {
                                 String userToken = loginResponse.getAuth_token();
+
+                                mFirebaseAnalytics.setUserProperty("Early Adopter", "true");
+
                                 doOnboarding(userToken);
                             }
 

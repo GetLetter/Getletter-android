@@ -15,11 +15,15 @@ import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.Volley;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.adapters.ItemAdapter;
 import com.neopixl.spitfire.listener.RequestListener;
 import com.neopixl.spitfire.request.BaseRequest;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +37,10 @@ import butterknife.BindView;
 public class HomepageActivity extends AppCompatActivity {
     private RequestQueue requestQueue;
     private Map<String, String> headers;
+    // get userToken
+    private Intent loginIntent;
+    private String userToken;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
@@ -42,12 +50,25 @@ public class HomepageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
+        loginIntent = getIntent();
+        userToken = loginIntent.getStringExtra("userToken");
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
         Button btnSend = (Button) findViewById(R.id.btn_send);
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Date currenTime = Calendar.getInstance().getTime();
+
+                Bundle Newletter_params = new Bundle();
+                Newletter_params.putString("User_token", userToken);
+                Newletter_params.putString("Date_time", currenTime.toString());
+                mFirebaseAnalytics.logEvent("NewLetter", Newletter_params);
+
+
                 Intent RecipientIndent = new Intent(getBaseContext(), RecipientActivity.class);
+                RecipientIndent.putExtra("userToken", userToken);
                 startActivity(RecipientIndent);
             }
         });
@@ -56,9 +77,7 @@ public class HomepageActivity extends AppCompatActivity {
     }
 
     private void getPreviousLetters() {
-        // get userToken
-        Intent loginIntent = getIntent();
-        String userToken = loginIntent.getStringExtra("userToken");
+        requestQueue = Volley.newRequestQueue(HomepageActivity.this);  // requestQueue != null
 
         // set api call headears
         headers = new HashMap<>();
@@ -69,7 +88,8 @@ public class HomepageActivity extends AppCompatActivity {
                 .listener(new RequestListener<LettersListResponse>() {
                     @Override
                     public void onSuccess(Request request, NetworkResponse response, LettersListResponse result) {
-                       Log.d("BITE", ""+response);
+                       List items = result.getItems();
+                       fillrecycler(items);
                     }
 
                     @Override
@@ -77,18 +97,21 @@ public class HomepageActivity extends AppCompatActivity {
                         Log.d("YOURAPP", "" + volleyError);
                     }
                 }).build();
-        Log.d("YOURAPP", "" + request);
         requestQueue.add(request);
     }
 
-    public void fillrecycler(final List<Object> letterList) {
+    public void fillrecycler(final List letterList) {
         ItemAdapter<LetterItem> itemAdapter = new ItemAdapter<>();
         FastAdapter fastAdapter = FastAdapter.with(itemAdapter);
-        recyclerView.setAdapter(fastAdapter);
+        // recyclerView.setAdapter(fastAdapter);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         layoutManager = new GridLayoutManager(this, 3);
-        recyclerView.setLayoutManager(layoutManager);
+        // recyclerView.setLayoutManager(layoutManager);
+
+        //for (Object letter: letterList) {
+            // itemAdapter.add(letter);
+        //}
     }
 }
 
