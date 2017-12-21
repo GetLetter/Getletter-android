@@ -29,6 +29,15 @@
     <string name="send_header">Finalisez l\'envoi de votre carte !</string>
     <string name="send_checkbox">Masquer le label GetLetter de la lettre.</string>
     <string name="send_text1">SUPPLÉMENT DE 2€</string>
+    <string name="send_btn_pay">Payer et envoyer</string>
+    <string name="send_text2">RÉSUMÉ</string>
+    <string name="send_text3">Livraison --</string>
+    <string name="send_value1">2€</string>
+    <string name="send_text4">Résumé ---</string>
+    <string name="send_value2">1€</string>
+    <string name="send_text5">TOTAL TTC</string>
+    <string name="send_text6">Votre première carte de voeux est gratuite !</string>
+    <string name="send_totalvalue">0€</string>
 
     <string-array name="send_modes">
         <item>Mode d'envoi</item>
