@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:fitsSystemWindows="true"
     android:id="@+id/activity"
-    tools:context="activity.SendActivity"
+    tools:context=".SendActivity"
     android:layout_height="match_parent">
 
     <ImageView
