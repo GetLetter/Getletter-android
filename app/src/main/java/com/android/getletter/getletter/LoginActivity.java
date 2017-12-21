@@ -51,21 +51,26 @@ public class LoginActivity extends AppCompatActivity{
 
         requestQueue = Volley.newRequestQueue(LoginActivity.this);  // requestQueue != null
 
+        final User userCredentials = new User();
+        userCredentials.setEmail("corentin@gmail.com");
+        userCredentials.setPassword("123456");
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                BaseRequest<LoginResponse> request = new BaseRequest.Builder<>(Request.Method.GET, "https://randomuser.me/api?limit=1", LoginResponse.class)
+                BaseRequest<LoginResponse> request = new BaseRequest.Builder<>(Request.Method.POST, "https://get-letter-api.herokuapp.com/authenticate", LoginResponse.class)
+                        .object(userCredentials)
                         .listener(new RequestListener<LoginResponse>() {
                             @Override
                             public void onSuccess(Request request, NetworkResponse response, LoginResponse loginResponse) {
-                                Log.d("YOURAPP", "" + loginResponse.getResults());
-                                doOnboarding();
+                                String userToken = loginResponse.getAuth_token();
+                                doOnboarding(userToken);
                             }
 
                             @Override
                             public void onFailure(Request request, NetworkResponse response, VolleyError volleyError) {
-                                Log.d("YOURAPP", "Dummy error");
+                                Log.d("YOURAPP", "" + volleyError);
                             }
                         }).build();
                 requestQueue.add(request);
@@ -75,7 +80,7 @@ public class LoginActivity extends AppCompatActivity{
         });
     }
 
-    public void doOnboarding() {
+    public void doOnboarding(String userToken) {
         //Building Onboarding Pages
         OnboardingPage page1 = new OnboardingPage("Renseignez les informations sur votre destinataire.",null , null);
         OnboardingPage page2 = new OnboardingPage("Personalisez votre carte et son message.",null , null);
@@ -104,7 +109,31 @@ public class LoginActivity extends AppCompatActivity{
 
         Intent OnboardingIntent = new Intent(getBaseContext(), MyOnboardingActivity.class);
         OnboardingIntent.putExtras(onboardingActivityBundle);
+        OnboardingIntent.putExtra("userToken", userToken);
         startActivity(OnboardingIntent);
     }
 
+}
+
+
+
+class User {
+    private String email;
+    private String password;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
