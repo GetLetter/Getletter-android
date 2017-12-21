@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 
@@ -27,10 +29,22 @@ public class RecipientActivity extends AppCompatActivity{
         userToken = homePageItent.getStringExtra("userToken");
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
-        Date currenTime = Calendar.getInstance().getTime();
-        Bundle Abort_params = new Bundle();
-        Abort_params.putString("User_Token", userToken);
-        Abort_params.putString("Date_time", currenTime.toString());
-        mFirebaseAnalytics.logEvent("AbortLetter", Abort_params);
+        final Button back = findViewById(R.id.btn_back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Date currenTime = Calendar.getInstance().getTime();
+                Bundle Abort_params = new Bundle();
+                Abort_params.putString("User_Token", userToken);
+                Abort_params.putString("Date_time", currenTime.toString());
+                mFirebaseAnalytics.logEvent("AbortLetter", Abort_params);
+
+                Intent backIntent = new Intent(getBaseContext(), HomepageActivity.class);
+                backIntent.putExtra("userToken", userToken);
+                startActivity(backIntent);
+            }
+        });
+
     }
 }

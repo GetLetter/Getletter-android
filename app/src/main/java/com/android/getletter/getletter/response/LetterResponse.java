@@ -12,17 +12,20 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LetterResponse implements Parcelable {
-    private String receiver_first_name;
-    private String receiver_last_name;
-    private String img;
-
-
-    public LetterResponse() {}
+    private String name;
 
     protected LetterResponse(Parcel in) {
-        receiver_first_name = in.readString();
-        receiver_last_name = in.readString();
-        img = in.readString();
+        name = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<LetterResponse> CREATOR = new Creator<LetterResponse>() {
@@ -36,40 +39,4 @@ public class LetterResponse implements Parcelable {
             return new LetterResponse[size];
         }
     };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(receiver_first_name);
-        dest.writeString(receiver_last_name);
-        dest.writeString(img);
-    }
-
-    public String getReceiver_first_name() {
-        return receiver_first_name;
-    }
-
-    public void setReceiver_first_name(String receiver_first_name) {
-        this.receiver_first_name = receiver_first_name;
-    }
-
-    public String getReceiver_last_name() {
-        return receiver_last_name;
-    }
-
-    public void setReceiver_last_name(String receiver_last_name) {
-        this.receiver_last_name = receiver_last_name;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
 }

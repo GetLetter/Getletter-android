@@ -100,13 +100,13 @@ public class LoginActivity extends AppCompatActivity{
         onboardingPages.add(page3);
 
         //Optionally set the title and body text colors for a specific page.
-        page1.setTitleTextColor(R.color.white);
-        page2.setTitleTextColor(R.color.white);
-        page3.setTitleTextColor(R.color.white);
+        page1.setTitleTextColor(R.color.colorPrimary);
+        page2.setTitleTextColor(R.color.colorPrimary);
+        page3.setTitleTextColor(R.color.colorPrimary);
 
 
         //Create a bundle for the Onboarding Activity
-        Bundle onboardingActivityBundle = MyOnboardingActivity.newBundleColorBackground(R.color.colorPrimary, onboardingPages);
+        Bundle onboardingActivityBundle = MyOnboardingActivity.newBundleColorBackground(R.color.white, onboardingPages);
 
         //Optionally set if the user can swipe between fragments. True by default.
         onboardingActivityBundle.putBoolean(MyOnboardingActivity.SWIPING_ENABLED, true);

@@ -8,7 +8,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 import com.android.getletter.getletter.response.LettersListResponse;
 import com.android.volley.NetworkResponse;
@@ -101,29 +104,8 @@ public class HomepageActivity extends AppCompatActivity {
     }
 
     public void fillrecycler(final List letterList) {
-        ItemAdapter<LetterItem> itemAdapter = new ItemAdapter<>();
-        FastAdapter fastAdapter = FastAdapter.with(itemAdapter);
-        // recyclerView.setAdapter(fastAdapter);
-
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        layoutManager = new GridLayoutManager(this, 3);
-        // recyclerView.setLayoutManager(layoutManager);
-
-        //for (Object letter: letterList) {
-            // itemAdapter.add(letter);
-        //}
-    }
-}
-
-
-class AuthorizationApi {
-    String Authorization;
-
-    public String getAuthorization() {
-        return Authorization;
-    }
-
-    public void setAuthorization(String authorization) {
-        Authorization = authorization;
+        ListAdapter lettersAdapter = new LettersAdaptater(this, letterList);
+        ListView lettersListView = (ListView) findViewById(R.id.list_item);
+        lettersListView.setAdapter(lettersAdapter);
     }
 }

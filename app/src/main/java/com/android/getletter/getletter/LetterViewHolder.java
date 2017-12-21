@@ -1,6 +1,7 @@
 package com.android.getletter.getletter;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.android.getletter.getletter.response.LetterResponse;
@@ -18,11 +19,12 @@ public class LetterViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void fill(LetterResponse letter) {
-        String full_name = letter.getReceiver_first_name() + " " + letter.getReceiver_last_name();
+        // String full_name = letter.g
 
        // titleTextView.setText(title);
 
        // Glide.with(context).load(url).into(imageView);
+        Log.d("FILL", ""+letter);
     }
 }
 

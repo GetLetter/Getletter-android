@@ -1,5 +1,6 @@
 package com.android.getletter.getletter;
 
+import android.util.Log;
 import android.view.View;
 
 import com.android.getletter.getletter.LetterViewHolder;
@@ -14,7 +15,6 @@ import java.util.List;
 
 public class LetterItem extends AbstractItem<LetterItem, LetterViewHolder> {
     public LetterResponse letter;
-
 
     @Override
     public LetterViewHolder getViewHolder(View v) {
@@ -34,7 +34,8 @@ public class LetterItem extends AbstractItem<LetterItem, LetterViewHolder> {
     @Override
     public void bindView(LetterViewHolder holder, List payloads) {
         super.bindView(holder, payloads);
+        Log.d("FILLHIPE", ""+letter);
 
-        // holder.fill(letter);
+        holder.fill(letter);
     }
 }
