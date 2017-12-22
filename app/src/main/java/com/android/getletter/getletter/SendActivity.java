@@ -4,14 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
+
 import java.util.HashMap;
 /**
  * Created by Thomas on 20/12/2017.
  */
 
 public class SendActivity extends AppCompatActivity {
-  
+
     private Spinner select1, select2;
     private boolean selected1, selected2;
     private View line;
@@ -48,17 +52,28 @@ public class SendActivity extends AppCompatActivity {
         totalvalue.setVisibility(View.GONE);
 
         select1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 selected1 = true;
                 checkSelect();
             }
 
-            @Override
             public void onNothingSelected(AdapterView<?> parentView) {
                 selected1 = false;
                 checkSelect();
             }
+        });
+
+        select2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                selected2 = true;
+                checkSelect();
+            }
+
+            public void onNothingSelected(AdapterView<?> parentView) {
+                selected2 = false;
+                checkSelect();
+            }
+        });
 
         Intent messageIntent = getIntent();
         final String userToken = messageIntent.getStringExtra("userToken");
@@ -68,7 +83,6 @@ public class SendActivity extends AppCompatActivity {
         Button next = (Button) findViewById(R.id.btn_continue);
 
         back.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
                 Intent backIntent = new Intent(getBaseContext(), MessageActivity.class);
                 backIntent.putExtra("userToken", userToken);
@@ -85,6 +99,8 @@ public class SendActivity extends AppCompatActivity {
                 startActivity(homepageItent);
             }
         });
+    }
+
     public void checkSelect() {
         if (selected1 && selected2) {
             line.setVisibility(View.VISIBLE);
