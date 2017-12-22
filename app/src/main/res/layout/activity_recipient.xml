@@ -44,7 +44,6 @@
         android:layout_marginTop="16dp"
         android:inputType="textPersonName"
         android:hint="@string/recipient_firstname"
-        android:textColor="#E5E6E6"
         android:backgroundTint="@color/colorAccent"
         app:layout_constraintTop_toBottomOf="@+id/text2"
         app:layout_constraintStart_toStartOf="parent" />
@@ -58,7 +57,6 @@
         android:layout_marginTop="10dp"
         android:inputType="textPersonName"
         android:hint="@string/recipient_lastname"
-        android:textColor="#E5E6E6"
         android:backgroundTint="@color/colorAccent"
         app:layout_constraintTop_toBottomOf="@+id/input1"
         app:layout_constraintStart_toStartOf="parent" />
@@ -72,36 +70,8 @@
         android:inputType="textPersonName"
         android:layout_marginTop="10dp"
         android:hint="@string/recipient_adresse"
-        android:textColor="#E5E6E6"
         android:backgroundTint="@color/colorAccent"
         app:layout_constraintTop_toBottomOf="@+id/input2"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/input4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="5"
-        android:layout_marginStart="16dp"
-        android:inputType="textPersonName"
-        android:layout_marginTop="10dp"
-        android:hint="@string/recipient_postcode"
-        android:textColor="#E5E6E6"
-        android:backgroundTint="@color/colorAccent"
-        app:layout_constraintTop_toBottomOf="@+id/input3"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/input5"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="5"
-        android:layout_marginStart="150dp"
-        android:inputType="textPersonName"
-        android:hint="@string/recipient_town"
-        android:textColor="#E5E6E6"
-        android:backgroundTint="@color/colorAccent"
-        app:layout_constraintBaseline_toBaselineOf="@id/input4"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView

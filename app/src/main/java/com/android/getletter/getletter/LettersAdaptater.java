@@ -46,7 +46,7 @@ public class LettersAdaptater extends ArrayAdapter {
                 .with(getContext())
                 .load("https://get-letter-api.herokuapp.com" + singleLetterItem.get("picture"))
                 .into(letterImg);
-        
+
         return customView;
     }
 }

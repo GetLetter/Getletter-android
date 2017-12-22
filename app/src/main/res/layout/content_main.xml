@@ -8,13 +8,6 @@
     tools:context="com.android.getletter.getletter.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <fragment
-        android:id="@+id/place_autocomplete_fragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        class="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
-        />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
