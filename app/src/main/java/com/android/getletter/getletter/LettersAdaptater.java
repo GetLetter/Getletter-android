@@ -40,8 +40,12 @@ public class LettersAdaptater extends ArrayAdapter {
         Map<String, String> singleLetterItem = (Map<String, String>) getItem(position);
         TextView letterName = (TextView) customView.findViewById(R.id.letter_row_name);
         ImageView letterImg = (ImageView) customView.findViewById(R.id.letter_row_img);
+        TextView letterDate = customView.findViewById(R.id.letter_row_date);
 
         letterName.setText(singleLetterItem.get("name"));
+        Log.d("BITE", singleLetterItem+"");
+        letterDate.setText(singleLetterItem.get("created_at"));
+
         Glide
                 .with(getContext())
                 .load("https://get-letter-api.herokuapp.com" + singleLetterItem.get("picture"))

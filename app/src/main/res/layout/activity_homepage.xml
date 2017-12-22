@@ -83,12 +83,6 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_send"
         android:background="@color/colorPrimary" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-    </LinearLayout>
 
     <TextView
         android:id="@+id/text3"
@@ -106,9 +100,11 @@
 
     <ListView
         android:id="@+id/list_item"
-        android:layout_width="wrap_content"
+        android:paddingLeft="16dip"
+        android:paddingRight="16dip"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       >
+        app:layout_constraintTop_toBottomOf="@+id/text3">
 
     </ListView>
 
