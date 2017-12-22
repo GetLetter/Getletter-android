@@ -9,17 +9,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LoginResponse {
-    public List results;
-
-    public List getResults() {
-        return results;
+    public String getAuth_token() {
+        return auth_token;
     }
 
-    public void setResults(List results) {
-        this.results = results;
+    public void setAuth_token(String auth_token) {
+        this.auth_token = auth_token;
     }
 
-    LoginResponse() {
+    private String auth_token;
 
-    }
+    LoginResponse() {}
 }

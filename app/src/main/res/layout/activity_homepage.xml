@@ -83,6 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_send"
         android:background="@color/colorPrimary" />
 
+
     <TextView
         android:id="@+id/text3"
         android:layout_width="wrap_content"
@@ -96,5 +97,15 @@
         android:text="@string/homepage_text3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/line" />
+
+    <ListView
+        android:id="@+id/list_item"
+        android:paddingLeft="16dip"
+        android:paddingRight="16dip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/text3">
+
+    </ListView>
 
 </android.support.constraint.ConstraintLayout>

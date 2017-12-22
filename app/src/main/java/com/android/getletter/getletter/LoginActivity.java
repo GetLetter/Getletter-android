@@ -16,6 +16,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.jrejaud.onboarder.OnboardingPage;
 import com.neopixl.spitfire.listener.RequestListener;
 import com.neopixl.spitfire.request.BaseRequest;
@@ -33,14 +34,17 @@ public class LoginActivity extends AppCompatActivity{
     private TextView logo, punchline, conditions;
     private Button btnLogin;
     private RequestQueue requestQueue;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // set the view
         setContentView(R.layout.activity_login);
+
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         logo = (TextView) findViewById(R.id.logo);
         punchline = (TextView) findViewById(R.id.punchline);
@@ -51,21 +55,29 @@ public class LoginActivity extends AppCompatActivity{
 
         requestQueue = Volley.newRequestQueue(LoginActivity.this);  // requestQueue != null
 
+        final User userCredentials = new User();
+        userCredentials.setEmail("corentin@gmail.com");
+        userCredentials.setPassword("123456");
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                BaseRequest<LoginResponse> request = new BaseRequest.Builder<>(Request.Method.GET, "https://randomuser.me/api?limit=1", LoginResponse.class)
+                BaseRequest<LoginResponse> request = new BaseRequest.Builder<>(Request.Method.POST, "https://get-letter-api.herokuapp.com/authenticate", LoginResponse.class)
+                        .object(userCredentials)
                         .listener(new RequestListener<LoginResponse>() {
                             @Override
                             public void onSuccess(Request request, NetworkResponse response, LoginResponse loginResponse) {
-                                Log.d("YOURAPP", "" + loginResponse.getResults());
-                                doOnboarding();
+                                String userToken = loginResponse.getAuth_token();
+
+                                mFirebaseAnalytics.setUserProperty("Early Adopter", "true");
+
+                                doOnboarding(userToken);
                             }
 
                             @Override
                             public void onFailure(Request request, NetworkResponse response, VolleyError volleyError) {
-                                Log.d("YOURAPP", "Dummy error");
+                                Log.d("YOURAPP", "" + volleyError);
                             }
                         }).build();
                 requestQueue.add(request);
@@ -75,7 +87,7 @@ public class LoginActivity extends AppCompatActivity{
         });
     }
 
-    public void doOnboarding() {
+    public void doOnboarding(String userToken) {
         //Building Onboarding Pages
         OnboardingPage page1 = new OnboardingPage("Renseignez les informations sur votre destinataire.",null , null);
         OnboardingPage page2 = new OnboardingPage("Personalisez votre carte et son message.",null , null);
@@ -88,13 +100,13 @@ public class LoginActivity extends AppCompatActivity{
         onboardingPages.add(page3);
 
         //Optionally set the title and body text colors for a specific page.
-        page1.setTitleTextColor(R.color.white);
-        page2.setTitleTextColor(R.color.white);
-        page3.setTitleTextColor(R.color.white);
+        page1.setTitleTextColor(R.color.colorPrimary);
+        page2.setTitleTextColor(R.color.colorPrimary);
+        page3.setTitleTextColor(R.color.colorPrimary);
 
 
         //Create a bundle for the Onboarding Activity
-        Bundle onboardingActivityBundle = MyOnboardingActivity.newBundleColorBackground(R.color.colorPrimary, onboardingPages);
+        Bundle onboardingActivityBundle = MyOnboardingActivity.newBundleColorBackground(R.color.white, onboardingPages);
 
         //Optionally set if the user can swipe between fragments. True by default.
         onboardingActivityBundle.putBoolean(MyOnboardingActivity.SWIPING_ENABLED, true);
@@ -104,7 +116,31 @@ public class LoginActivity extends AppCompatActivity{
 
         Intent OnboardingIntent = new Intent(getBaseContext(), MyOnboardingActivity.class);
         OnboardingIntent.putExtras(onboardingActivityBundle);
+        OnboardingIntent.putExtra("userToken", userToken);
         startActivity(OnboardingIntent);
     }
 
+}
+
+
+
+class User {
+    private String email;
+    private String password;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

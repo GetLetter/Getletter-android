@@ -1,29 +1,25 @@
 package com.android.getletter.getletter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Spinner;
-import android.widget.TextView;
-
+import android.widget.Button;
+import java.util.HashMap;
 /**
  * Created by Thomas on 20/12/2017.
  */
 
 public class SendActivity extends AppCompatActivity {
-
-    private View line;
+  
     private Spinner select1, select2;
-    private TextView text2, text3, text4, text5, text6, text7, text8, totalvalue;
     private boolean selected1, selected2;
+    private View line;
+    private TextView text2, text3, text4, text5, text6, text7, text8, totalvalue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-
-        // set the view
         setContentView(R.layout.activity_send);
 
         selected1 = false;
@@ -64,25 +60,31 @@ public class SendActivity extends AppCompatActivity {
                 checkSelect();
             }
 
+        Intent messageIntent = getIntent();
+        final String userToken = messageIntent.getStringExtra("userToken");
+        final HashMap<String, String> recipientData = (HashMap<String, String>) messageIntent.getSerializableExtra("data");
+
+        Button back = (Button) findViewById(R.id.btn_back);
+        Button next = (Button) findViewById(R.id.btn_continue);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backIntent = new Intent(getBaseContext(), MessageActivity.class);
+                backIntent.putExtra("userToken", userToken);
+                backIntent.putExtra("data", recipientData);
+                startActivity(backIntent);
+            }
         });
 
-        select2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        next.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                selected2 = true;
-                checkSelect();
+            public void onClick(View v) {
+                Intent homepageItent = new Intent(getBaseContext(), HomepageActivity.class);
+                homepageItent.putExtra("userToken", userToken);
+                startActivity(homepageItent);
             }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                selected2 = false;
-                checkSelect();
-            }
-
         });
-
-    }
-
     public void checkSelect() {
         if (selected1 && selected2) {
             line.setVisibility(View.VISIBLE);
@@ -90,16 +92,16 @@ public class SendActivity extends AppCompatActivity {
             text3.setVisibility(View.VISIBLE);
             text4.setVisibility(View.VISIBLE);
             text5.setVisibility(View.VISIBLE);
-            text6.setVisibility(View.VISIBLE);
             text7.setVisibility(View.VISIBLE);
+            text6.setVisibility(View.VISIBLE);
             text8.setVisibility(View.VISIBLE);
         } else {
             line.setVisibility(View.GONE);
             text2.setVisibility(View.GONE);
             text3.setVisibility(View.GONE);
             text4.setVisibility(View.GONE);
-            text5.setVisibility(View.GONE);
             text6.setVisibility(View.GONE);
+            text5.setVisibility(View.GONE);
             text7.setVisibility(View.GONE);
             text8.setVisibility(View.GONE);
             totalvalue.setVisibility(View.GONE);
