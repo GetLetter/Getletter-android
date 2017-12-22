@@ -54,17 +54,39 @@ public class RecipientActivity extends AppCompatActivity{
                 EditText nom =  findViewById(R.id.input2);
                 EditText prenom =  findViewById(R.id.input1);
 
-                String name =prenom.getText() + " " + nom.getText();
+
+                if( prenom.getText().toString().trim().equals("")){
+                    prenom.setError( "Le prénom est vide !" );
+                    return;
+                }
+                if( nom.getText().toString().trim().equals("")){
+                    nom.setError( "Le nom est vide !" );
+                    return;
+                }
+                if( address.getText().toString().trim().equals("")){
+                    address.setError( "L'adresse est vide !" );
+                    return;
+                }
+
+
+
+
+                    String name =prenom.getText() + " " + nom.getText();
 
                 data.put("address", address.getText().toString());
                 data.put("name", name);
+
+                Intent MessageIntent = new Intent(getBaseContext(), MessageActivity.class);
+                MessageIntent.putExtra("userToken", userToken);
+                MessageIntent.putExtra("data", data);
+
+                startActivity(MessageIntent);
             }
         });
 
         address.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                Log.d("bite", hasFocus+"");
                 setLocation();
             }
         });

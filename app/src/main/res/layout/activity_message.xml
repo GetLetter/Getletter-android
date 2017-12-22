@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:fitsSystemWindows="true"
     android:id="@+id/activity"
-    tools:context=".MessageActivity"
+    tools:context="com.android.getletter.getletter.MessageActivity"
     android:layout_height="match_parent">
 
     <ImageView
@@ -41,6 +41,7 @@
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:layout_marginStart="16dp"
+        android:hint="Votre message"
         android:layout_marginEnd="16dp"
         android:inputType="textMultiLine"
         android:singleLine="false"
